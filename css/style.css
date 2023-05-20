@@ -59,12 +59,18 @@ canvas {
   /* background: #c1e717; */
   display: flex;
   justify-content: center;
-  height: 300vh;
+  height: 200vh;
   border-top: 2px solid #fff;
 }
 
 #third-section {
   height: 300vh;
-  /* background: rgb(57, 63, 61); */
   border-top: 2px solid #fff;
+}
+
+.take-action {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,46 +1,34 @@
-var secondSection = document.getElementById('second-section')
-var secondSectionHeight = secondSection.offsetTop;
-const firstSectionHeight = document.getElementById('first-section').offsetHeight;
 const video = document.getElementById('charging-case-video');
+const viewportHeight = window.innerHeight;
+// Calculate the padding required to center the video vertically in the viewport
+const videoPadding = (viewportHeight - video.offsetHeight) / 2;
+const secondSection = document.getElementById('second-section');
 
 window.addEventListener('scroll', function () {
-  const scrollTrigger = document.getElementById('second-section');
-  const scrollTriggerRect = scrollTrigger.getBoundingClientRect();
-  const viewportHeight = window.innerHeight;
+  // getBoundingClientRect() is used to get the size and position of the element
+  const secondSectionRect = secondSection.getBoundingClientRect();
 
-  videoPadding = (viewportHeight - video.offsetHeight) / 2;
-  console.log("height of the viewport",viewportHeight);
-  console.log("height of the video",videoPadding);
-  if (scrollTriggerRect.top <= viewportHeight  - (videoPadding + video.offsetHeight)) {
-    // If the scroll-trigger div reaches the middle of the viewport
-    // set the video position to the center of the viewport
-    video.style.position = 'fixed';
-    video.style.top = '50%';
-    video.style.left = '50%';
-    video.style.transform = 'translate(-50%, -50%)';
-  } else if (scrollTriggerRect.top <= viewportHeight  - (videoPadding - video.offsetHeight)){
-    // Otherwise, reset the video position
-    video.style.position = '';
-    video.style.top = '';
-    video.style.left = '';
-    video.style.transform = ''
+  if (secondSectionRect.top <= viewportHeight - (videoPadding + video.offsetHeight)) {
+    // If the top position of the second section is within the range
+    video.classList.add('take-action')
+  } else if (secondSectionRect.top <= viewportHeight - (videoPadding - video.offsetHeight)) {
+    // If the top position of the second section is within another range
+    video.classList.remove('take-action')
+    // align the items into the top of the second section
     secondSection.style.alignItems = 'flex-start';
   }
-  if (scrollTriggerRect.bottom <= viewportHeight - videoPadding){
-    video.style.position = '';
-    video.style.top = '';
-    video.style.left = '';
-    video.style.transform = ''
-    console.log("Bottom reached");
-    video.style.position = '';
+
+  if (secondSectionRect.bottom <= viewportHeight - videoPadding) {
+    video.classList.remove('take-action')
+    // align the items into the bottom of the second section
     secondSection.style.alignItems = 'flex-end';
   }
 });
 
 function scrollPlay() {
-  console.log("ScrollPLay Working");
-  var frameNumber  = (window.pageYOffset - sectionHeight) / 300
-  video.currentTime  = frameNumber;
+  var playBackSpeed = 200
+  var frameNumber = (window.pageYOffset - (sectionHeight - videoPadding)) / playBackSpeed
+  video.currentTime = frameNumber;
   window.requestAnimationFrame(scrollPlay);
 }
 scrollPlay();
