@@ -53,13 +53,12 @@ canvas {
 #charging-case-video {
   height: 40vh;
   justify-content: center;
-  /* border: 2px solid #fff; */
+  border: 2px solid #fff;
 }
 #second-section {
   /* background: #c1e717; */
   display: flex;
   justify-content: center;
-  height: 200vh;
   border-top: 2px solid #fff;
 }
 
@@ -73,4 +72,14 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 540px) {
+  #charging-case-video {
+    height: 30vh;
+  }
+  #image-sequence .hero-headline{
+    top: 65%
+    ;
+  }
 }

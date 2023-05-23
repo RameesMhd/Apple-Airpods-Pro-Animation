@@ -40,7 +40,7 @@ const updateImage = index => {
 }
 
 var sectionHeight = document.getElementById('image-sequence').offsetHeight;
-console.log("sectionHeight", sectionHeight);
+// console.log("sectionHeight", sectionHeight);
 
 window.addEventListener('scroll', () => {
   const scrollTop = html.scrollTop;
