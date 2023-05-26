@@ -29,9 +29,9 @@ canvas {
   transition: opacity 0.3s;
   transform: scale(1);
   transform-origin: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) !important;
+  top: 40%;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%) !important; */
   margin: 0px;
   width: 100%;
   text-align: center;
@@ -64,7 +64,11 @@ canvas {
 
 #third-section {
   height: 300vh;
-  border-top: 2px solid #fff;
+  display: flex;
+  align-items: flex-start;
+}
+#fourth-section {
+  height: 300vh;
 }
 
 .take-action {
@@ -74,12 +78,50 @@ canvas {
   transform: translate(-50%, -50%);
 }
 
+/*  Mask Video styles */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.wrapper video {
+  width: 100%;
+  background-position: 50%;
+  background-size: cover;
+}
+.border {
+  border-color: #000000;
+  border-style: solid;
+  border-width: 50vh 50vw;
+  box-sizing: content-box;
+  height: 25vh;
+  width: 40vw;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.svgMask {
+  scale: 1;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+}
+
 @media only screen and (max-width: 540px) {
   #charging-case-video {
     height: 30vh;
   }
-  #image-sequence .hero-headline{
-    top: 65%
-    ;
+  #image-sequence .hero-headline {
+    top: 65%;
   }
 }
